@@ -9,6 +9,15 @@
 / {
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
 
+    macros {
+        Enter_TO2: Enter_TO2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp ENTER &to 2>;
+            label = "ENTER_TO2";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -59,7 +68,7 @@
 &trans      &kp PERIOD       &kp NUMBER_4    &kp N5           &kp NUMBER_6   &kp KP_SLASH                  &trans  &trans  &trans        &trans    &trans  &trans
 &trans      &kp COMMA        &kp NUMBER_1    &kp NUMBER_2     &kp NUMBER_3   &kp EQUAL                     &trans  &trans  &trans        &trans    &trans  &trans
 &trans      &trans           &kp LEFT_ARROW  &kp RIGHT_ARROW  &trans                                               &trans  &kp UP_ARROW  &kp DOWN  &trans  &trans
-                                                              &to 2          &trans           &mo 5        &trans  &trans  &to 0
+                                                              &to 2          &Enter_TO2       &mo 5        &trans  &trans  &to 0
                                                               &kp BACKSPACE  &kp N0           &kp LCTRL    &trans  &trans  &to 4
             >;
         };
@@ -102,10 +111,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,
         <&zip_xy_scaler 1 3>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
