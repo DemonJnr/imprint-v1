@@ -36,8 +36,8 @@
 
         Game_Layer {
             bindings = <
-&kp ESCAPE  &kp P      &kp Z           &kp X            &kp I   &kp M                      &kp C_PREV  &kp C_NEXT  &kp C_PLAY_PAUSE  &kp C_VOL_DN    &kp C_VOL_UP  &bl BL_ON
-&kp J       &none      &none           &none            &kp T   &kp O                      &trans      &trans      &trans            &trans          &trans        &bl BL_OFF
+&kp ESCAPE  &kp Z      &kp O           &kp P            &kp I   &kp M                      &kp C_PREV  &kp C_NEXT  &kp C_PLAY_PAUSE  &kp C_VOL_DN    &kp C_VOL_UP  &bl BL_ON
+&kp Y       &none      &none           &none            &kp T   &kp O                      &trans      &trans      &trans            &trans          &trans        &bl BL_OFF
 &kp K       &kp SPACE  &kp Q           &kp W            &kp E   &kp R                      &kp Y       &kp U       &kp I             &kp O           &kp P         &trans
 &kp SPACE   &kp SPACE  &kp A           &kp S            &kp D   &kp F                      &kp H       &kp J       &kp K             &kp L           &trans        &trans
 &kp L       &kp LCTRL  &kp X           &kp C            &none   &none                      &kp N       &kp M       &trans            &trans          &trans        &kp RIGHT_SHIFT
@@ -101,11 +101,11 @@
 
         Game_Modifier {
             bindings = <
-&trans  &trans        &trans        &trans        &kp F4        &trans               &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5               &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5               &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans        &trans        &trans        &trans        &trans               &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans        &trans        &trans        &trans        &trans               &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans        &trans        &kp RA(N)     &kp RS(D)     &kp RS(N)            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans        &trans        &trans        &kp RA(N)            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &kp LA(K)     &kp LA(C)     &kp RS(D)     &kp RS(N)            &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans        &trans        &trans        &trans                                     &trans  &trans  &trans  &trans  &trans
                                                   &trans        &trans     &trans    &trans  &trans  &trans
                                                   &trans        &trans     &trans    &trans  &trans  &trans
@@ -124,10 +124,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 3>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
